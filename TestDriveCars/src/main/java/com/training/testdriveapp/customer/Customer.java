@@ -17,38 +17,74 @@ public class Customer {
     @GeneratedValue
     private Integer customerId;
     private String CustomerName;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customer_id")
     private Address address;
-    private Integer mobileNumber;
+    private String mobileNumber;
     private String customerEmail;
+    private String password;
+
 
     @OneToMany
-    private List<Rating> customerRatingList = new ArrayList<>();
+    private List<Rating> ratings = new ArrayList<>();
     @ManyToMany
     private List<Car> testDriveCars = new ArrayList<>();
 
     @OneToMany
     private List<Booking> customerBookings = new ArrayList<>();
 
+    public Customer() {
+
+    }
+
     public List<Booking> getCustomerBookings() {
         return customerBookings;
     }
 
 
-    public Customer() {
-    }
 
-    public Customer(Integer customerId, String customerName, Address address, Integer mobileNumber, String customerEmail, List<Rating> customerRatingList, List<Car> testDriveCars, List<Booking> customerBookings) {
+    public Customer(Integer customerId, String customerName, Address address, String mobileNumber, String customerEmail, String password) {
         this.customerId = customerId;
         CustomerName = customerName;
         this.address = address;
         this.mobileNumber = mobileNumber;
         this.customerEmail = customerEmail;
-        this.customerRatingList = customerRatingList;
-        this.testDriveCars = testDriveCars;
-        this.customerBookings = customerBookings;
+        this.password = password;
     }
+    //    public Customer(Integer customerId, String customerName, Address address, Integer mobileNumber, String customerEmail, List<Rating> ratings, List<Car> testDriveCars, List<Booking> customerBookings) {
+//        this.customerId = customerId;
+//        CustomerName = customerName;
+//        this.address = address;
+//        this.mobileNumber = mobileNumber;
+//        this.customerEmail = customerEmail;
+//        this.ratings = ratings;
+//        this.testDriveCars = testDriveCars;
+//        this.customerBookings = customerBookings;
+//    }
 
+
+//    public Customer(Integer customerId, String customerName, Address address, Integer mobileNumber, String customerEmail, String password, List<Rating> ratings, List<Car> testDriveCars, List<Booking> customerBookings) {
+//        this.customerId = customerId;
+//        CustomerName = customerName;
+//        this.address = address;
+//        this.mobileNumber = mobileNumber;
+//        this.customerEmail = customerEmail;
+//        this.password = password;
+//        this.ratings = ratings;
+//        this.testDriveCars = testDriveCars;
+//        this.customerBookings = customerBookings;
+//    }
+
+//    public Customer(String customerName, Address address, Integer mobileNumber, String customerEmail, String password, List<Rating> ratings, List<Car> testDriveCars, List<Booking> customerBookings) {
+//        CustomerName = customerName;
+//        this.address = address;
+//        this.mobileNumber = mobileNumber;
+//        this.customerEmail = customerEmail;
+//        this.password = password;
+//        this.ratings = ratings;
+//        this.testDriveCars = testDriveCars;
+//        this.customerBookings = customerBookings;
+//    }
 
     public void setCustomerBookings(List<Booking> customerBooking) {
         this.customerBookings = customerBooking;
@@ -63,15 +99,28 @@ public class Customer {
     }
 
 
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
+    public List<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
+    }
 
     public List<Rating> getCustomerRatingList() {
-        return customerRatingList;
+        return ratings;
     }
 
     public void setCustomerRatingList(List<Rating> customerRatingList) {
-        this.customerRatingList = customerRatingList;
+        this.ratings = customerRatingList;
     }
 
 
@@ -99,11 +148,11 @@ public class Customer {
         this.address = address;
     }
 
-    public Integer getMobileNumber() {
+    public String getMobileNumber() {
         return mobileNumber;
     }
 
-    public void setMobileNumber(Integer mobileNumber) {
+    public void setMobileNumber (String  mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
 

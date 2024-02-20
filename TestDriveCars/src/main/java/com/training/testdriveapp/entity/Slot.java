@@ -12,12 +12,12 @@ public class Slot {
     @Id
     private Integer slot;
     private LocalDate date;
-    private LocalTime time;
 
-    public Slot(Integer slot, LocalDate date, LocalTime time) {
+
+    public Slot(Integer slot, LocalDate date) {
         this.slot = slot;
         this.date = date;
-        this.time = time;
+
     }
 
     public Slot() {
@@ -40,11 +40,5 @@ public class Slot {
         this.date = date;
     }
 
-    public LocalTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalTime time) {
-        this.time = time;
-    }
+   
 }

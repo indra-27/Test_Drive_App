@@ -10,7 +10,7 @@ public class Address {
     private String addressLane;
     private String City;
     private String State;
-    private Integer pincode;
+    private String pincode;
 
     public String getDoorNo() {
         return DoorNo;
@@ -44,18 +44,18 @@ public class Address {
         State = state;
     }
 
-    public Integer getPincode() {
+    public String getPincode() {
         return pincode;
     }
 
-    public void setPincode(Integer pincode) {
+    public void setPincode(String pincode) {
         this.pincode = pincode;
     }
 
     public Address() {
     }
 
-    public Address(String doorNo, String addressLane, String city, String state, Integer pincode) {
+    public Address(String doorNo, String addressLane, String city, String state, String pincode) {
         DoorNo = doorNo;
         this.addressLane = addressLane;
         City = city;

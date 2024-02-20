@@ -27,8 +27,8 @@ public class Customer {
 
     @OneToMany
     private List<Rating> ratings = new ArrayList<>();
-    @ManyToMany
-    private List<Car> testDriveCars = new ArrayList<>();
+//    @ManyToMany
+//    private List<Car> testDriveCars = new ArrayList<>();
 
     @OneToMany
     private List<Booking> customerBookings = new ArrayList<>();
@@ -90,13 +90,13 @@ public class Customer {
         this.customerBookings = customerBooking;
     }
 
-    public List<Car> getTestDriveCars() {
-        return testDriveCars;
-    }
-
-    public void setTestDriveCars(List<Car> testDriveCars) {
-        this.testDriveCars = testDriveCars;
-    }
+//    public List<Car> getTestDriveCars() {
+//        return testDriveCars;
+//    }
+//
+//    public void setTestDriveCars(List<Car> testDriveCars) {
+//        this.testDriveCars = testDriveCars;
+//    }
 
 
     public String getPassword() {

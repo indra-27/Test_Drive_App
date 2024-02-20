@@ -3,6 +3,7 @@ package com.training.testdriveapp.customer;
 import com.training.testdriveapp.customer.Customer;
 import com.training.testdriveapp.customer.CustomerRepository;
 import com.training.testdriveapp.customer.CustomerServices;
+import com.training.testdriveapp.entity.Address;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,9 @@ import java.util.Optional;
 public class CustomerServicesImpl implements CustomerServices {
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Autowired
+    private  AddressRepository addressRepository;
     @Override
     public Customer addNewCustomer(Customer newCustomer) {
         return this.customerRepository.save(newCustomer);
@@ -29,10 +33,27 @@ public class CustomerServicesImpl implements CustomerServices {
     }
 
     @Override
-    public Customer deleteCustomer(Integer id) {
+    public void deleteCustomer(Integer id) {
         Optional<Customer> customerOpt=this.customerRepository.findById(id);
-        this.customerRepository.deleteById(id);
-        return customerOpt.get();
+        if(customerOpt.isPresent()){
+//            this.customerRepository.deleteById(id);
+//            Optional<Address> addressOpt=this.addressRepository.findById(id);
+//            this.addressRepository.deleteById(id);
+            Customer customer=customerOpt.get();
+            Address address=customer.getAddress();
+
+
+            addressRepository.delete(address);
+            customerRepository.delete(customer);
+        }
+
+        else {
+            // Handle the case when the customer with the given ID is not found
+            throw new RuntimeException("Customer not found with id: " + id);
+        }
+
+
+        //return addressOpt.get();
     }
 
     @Override

@@ -11,7 +11,7 @@ public interface CustomerServices {
 
     Customer updateCustomer(Customer customer);
 
-    Customer deleteCustomer(Integer id);
+    void deleteCustomer(Integer id);
 
     Customer login(LoginDto loginDto) throws CustomerException;
 }

@@ -18,7 +18,7 @@ public class Customer {
     private Integer customerId;
     private String CustomerName;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "customerId")
     private Address address;
     private String mobileNumber;
     private String customerEmail;

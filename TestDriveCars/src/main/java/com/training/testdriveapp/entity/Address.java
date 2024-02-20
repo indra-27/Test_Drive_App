@@ -1,16 +1,38 @@
 package com.training.testdriveapp.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.training.testdriveapp.customer.Customer;
+import jakarta.persistence.*;
 
 @Entity
 public class Address {
     @Id
+    @GeneratedValue
+    private Integer Id;
+
     private String DoorNo;
     private String addressLane;
     private String City;
     private String State;
     private String pincode;
+//   @OneToOne
+//   @JoinColumn(name = "customerId")
+//    private Customer customer;
+
+//    public Customer getCustomer() {
+//        return customer;
+//    }
+//
+//    public void setCustomer(Customer customer) {
+//        this.customer = customer;
+//    }
+
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
+    }
 
     public String getDoorNo() {
         return DoorNo;

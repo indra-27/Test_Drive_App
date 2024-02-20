@@ -1,4 +1,57 @@
 package com.training.testdriveapp.staff;
 
-public class StaffServiceImpl {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class StaffServiceImpl implements StaffService {
+    @Autowired
+    private StaffRepository staffRepository;
+    @Override
+    public Staff addNewStaff(Staff newStaff) throws StaffException {
+        if(newStaff==null){
+            throw new StaffException("Staff id can't be null");
+        }
+        Optional<Staff> foundAccount = this.staffRepository.findBystaffId(newStaff.getStaffId());
+        if(foundAccount.isPresent())
+            throw new StaffException("Staff Already exists:"+newStaff.getStaffName());
+
+        //   return this.productDao.addProduct(newProduct);
+        Optional<Staff> accountOpt=this.staffRepository.findBystaffEmail(newStaff.getStaffEmail());
+        if(accountOpt.isPresent())
+            throw new StaffException("Email already registered,please re try. "+newStaff.getStaffEmail());
+        return this.staffRepository.save(newStaff);
+    }
+
+    @Override
+    public Staff updateStaffDetails(Staff staff) throws StaffException {
+        if(staff==null){
+            throw new StaffException("Account can't be null");
+        }
+        return this.staffRepository.save(staff);
+    }
+
+    @Override
+    public Staff getByStaffId(Integer staffId) throws StaffException{
+        return this.staffRepository.findBystaffId(staffId).get();
+
+    }
+
+    @Override
+    public Staff deleteStaff(Integer staffId) throws  StaffException {
+        Optional<Staff> deleteStaff = this.staffRepository.findById(staffId);
+        this.staffRepository.deleteBystaffId(staffId);
+        return deleteStaff.get();
+    }
+
+    @Override
+    public List<Staff> getAllStaffs() throws StaffException {
+        return this.staffRepository.findAll();
+
+    }
+
+
 }

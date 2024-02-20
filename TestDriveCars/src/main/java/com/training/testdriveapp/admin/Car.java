@@ -40,6 +40,8 @@ public class Car {
 
 //    @ManyToMany
 //    private List<Availability> carAvailabilityList;
+public Car() {
+}
 
     public Car(String company, String modelName, String color, Double carPrice, String engineModel, String vehicleType, Integer seater, Double mileage, Double rpm, List<Rating> rating) {
         Company = company;
@@ -53,6 +55,8 @@ public class Car {
         this.rpm = rpm;
         this.ratings = rating;
     }
+
+
 
     public Integer getCarId() {
         return carId;
@@ -142,6 +146,4 @@ public class Car {
         this.ratings = rating;
     }
 
-    public Car() {
-    }
 }

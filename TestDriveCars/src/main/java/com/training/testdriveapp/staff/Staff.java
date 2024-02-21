@@ -14,7 +14,7 @@ public class Staff {
     private String staffName;
     @OneToOne
     private Address address;
-    private Integer phoneNumber;
+    private String phoneNumber;
     private String staffEmail;
     @ManyToMany
     private List<Slot> staffAvailabilityList;
@@ -43,11 +43,11 @@ public class Staff {
         this.address = address;
     }
 
-    public Integer getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -70,7 +70,7 @@ public class Staff {
     public Staff() {
     }
 
-    public Staff(String staffName, Address address, Integer phoneNumber, String staffEmail, List<Slot> staffAvailabilityList) {
+    public Staff(String staffName, Address address, String phoneNumber, String staffEmail, List<Slot> staffAvailabilityList) {
         this.staffName = staffName;
         this.address = address;
         this.phoneNumber = phoneNumber;

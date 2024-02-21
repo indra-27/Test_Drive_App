@@ -12,7 +12,7 @@ public class StaffController{
     @Autowired
     private StaffService staffService;
 
-    @PostMapping("Add Staff")
+    @PostMapping("staff")
     public Staff addNewStaff(Staff newStaff) throws StaffException
     {
         return this.staffService.addNewStaff(newStaff);
@@ -24,12 +24,12 @@ public class StaffController{
     }
 
     @GetMapping("Get Staff by Id/{staffid}")
-    public Staff getByStaffId(@PathVariable("id") Integer staffId) throws StaffException {
-        return this.staffService.getByStaffId(staffId);
+    public Staff getByStaffId(@PathVariable("staffid") Integer staffid) throws StaffException {
+        return this.staffService.getByStaffId(staffid);
     }
     @DeleteMapping("Delete Staff/{staffid}")
-    public Staff deleteAccountById(@PathVariable Integer staffId) throws StaffException {
-        return this.staffService.deleteStaff(staffId);
+    public Staff deleteAccountById(@PathVariable Integer staffid) throws StaffException {
+        return this.staffService.deleteStaff(staffid);
     }
     @GetMapping("getAllStaffs")
     public List<Staff> getAllAccounts() throws StaffException {

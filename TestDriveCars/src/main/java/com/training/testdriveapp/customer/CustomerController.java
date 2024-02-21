@@ -39,4 +39,9 @@ public class CustomerController {
     public Customer login(@RequestBody LoginDto loginDto) throws CustomerException {
         return this.customerServices.login(loginDto);
     }
+
+    @GetMapping("customer/withaddress/{id}")
+    public Customer getCustomerById(@PathVariable Integer id) throws CustomerException{
+        return this.customerServices.getCustomerById(id);
+    }
 }

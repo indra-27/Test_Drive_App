@@ -14,4 +14,6 @@ public interface CustomerServices {
     void deleteCustomer(Integer id) throws CustomerException;
 
     Customer login(LoginDto loginDto) throws CustomerException;
+
+    Customer getCustomerById(Integer customerId);
 }

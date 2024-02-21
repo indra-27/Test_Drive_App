@@ -31,10 +31,12 @@ public class CustomerServicesImpl implements CustomerServices {
 
     @Override
     public List<Customer> getAllCustomers() {
-
+//        Customer customer=this.customerRepository.findById()
 
         return this.customerRepository.findAll();
     }
+
+
 
     @Override
     public Customer updateCustomer(Customer customer) throws CustomerException {
@@ -85,5 +87,29 @@ public class CustomerServicesImpl implements CustomerServices {
 
         return foundCustomer;
     }
+
+    @Override
+    public Customer getCustomerById(Integer customerId) {
+       Optional<Customer> customer=this.customerRepository.findById(customerId);
+        if(customer!=null){
+            Optional<Address> address=this.addressRepository.findById(customer.get().getAddress().getId());
+            if(address!=null){
+                Customer customer1=new Customer();
+                customer1.setCustomerId(customer.get().getCustomerId());
+                customer1.setCustomerName(customer.get().getCustomerName());
+                customer1.setAddress(address.get());
+                customer1.setCustomerEmail(customer.get().getCustomerEmail());
+                customer1.setMobileNumber(customer.get().getMobileNumber());
+                customer1.setPassword(customer.get().getPassword());
+                return customer1;
+
+
+
+            }
+
+
+        }
+        return null;
     }
+}
 

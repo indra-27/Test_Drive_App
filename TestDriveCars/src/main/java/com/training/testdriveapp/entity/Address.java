@@ -1,18 +1,17 @@
 package com.training.testdriveapp.entity;
 
-import com.training.testdriveapp.customer.Customer;
 import jakarta.persistence.*;
 
 @Entity
 public class Address {
     @Id
     @GeneratedValue
-    private Integer Id;
+    private Integer id;
 
-    private String DoorNo;
+    private String doorNo;
     private String addressLane;
-    private String City;
-    private String State;
+    private String city;
+    private String state;
     private String pincode;
 //   @OneToOne
 //   @JoinColumn(name = "customerId")
@@ -27,19 +26,19 @@ public class Address {
 //    }
 
     public Integer getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Integer id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getDoorNo() {
-        return DoorNo;
+        return doorNo;
     }
 
     public void setDoorNo(String doorNo) {
-        DoorNo = doorNo;
+        this.doorNo = doorNo;
     }
 
     public String getAddressLane() {
@@ -51,19 +50,19 @@ public class Address {
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
 
     public String getState() {
-        return State;
+        return state;
     }
 
     public void setState(String state) {
-        State = state;
+        this.state = state;
     }
 
     public String getPincode() {
@@ -78,10 +77,10 @@ public class Address {
     }
 
     public Address(String doorNo, String addressLane, String city, String state, String pincode) {
-        DoorNo = doorNo;
+        this.doorNo = doorNo;
         this.addressLane = addressLane;
-        City = city;
-        State = state;
+        this.city = city;
+        this.state = state;
         this.pincode = pincode;
     }
 }

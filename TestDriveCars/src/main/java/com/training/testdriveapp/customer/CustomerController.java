@@ -11,7 +11,7 @@ public class CustomerController {
     private CustomerServices customerServices;
 
     @PostMapping("customer")
-    public Customer addNewCustomer(@RequestBody Customer customer){
+    public Customer addNewCustomer(@RequestBody Customer customer) throws CustomerException{
         return this.customerServices.addNewCustomer(customer);
 
     }
@@ -23,13 +23,13 @@ public class CustomerController {
     }
 
     @PutMapping("customer/update")
-    public Customer updateCustomer(@RequestBody Customer customer){
+    public Customer updateCustomer(@RequestBody Customer customer) throws CustomerException{
         return this.customerServices.updateCustomer(customer);
 
     }
 
     @DeleteMapping("customer/delete/{id}")
-    public void deleteCustomerById(@PathVariable Integer id)
+    public void deleteCustomerById(@PathVariable Integer id) throws CustomerException
     {
          this.customerServices.deleteCustomer(id);
 

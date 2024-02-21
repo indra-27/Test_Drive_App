@@ -18,22 +18,39 @@ public class CustomerServicesImpl implements CustomerServices {
     @Autowired
     private  AddressRepository addressRepository;
     @Override
-    public Customer addNewCustomer(Customer newCustomer) {
+    public Customer addNewCustomer(Customer newCustomer) throws CustomerException {
+//        if(newCustomer==null)
+//            throw new CustomerException("New customer cannot be null");
+       // this.customerRepository.save(newCustomer);
+       Optional<Customer> customerOpt=this.customerRepository.findByCustomerEmail(newCustomer.getCustomerEmail());
+
+        if(customerOpt.isPresent())
+            throw new CustomerException("Customer already exists");
         return this.customerRepository.save(newCustomer);
     }
 
     @Override
     public List<Customer> getAllCustomers() {
+
+
         return this.customerRepository.findAll();
     }
 
     @Override
-    public Customer updateCustomer(Customer customer) {
+    public Customer updateCustomer(Customer customer) throws CustomerException {
+//        if(customer==null)
+//            throw new CustomerException("Customer cannot be null");
+        Optional<Customer> customerOpt=this.customerRepository.findById(customer.getCustomerId());
+
+        if(!(customerOpt.isPresent()))
+            throw new CustomerException("Customer not exists with id "+customer.getCustomerId());
+
+
         return this.customerRepository.save(customer);
     }
 
     @Override
-    public void deleteCustomer(Integer id) {
+    public void deleteCustomer(Integer id) throws CustomerException {
         Optional<Customer> customerOpt=this.customerRepository.findById(id);
         if(customerOpt.isPresent()){
 //            this.customerRepository.deleteById(id);
@@ -49,7 +66,7 @@ public class CustomerServicesImpl implements CustomerServices {
 
         else {
             // Handle the case when the customer with the given ID is not found
-            throw new RuntimeException("Customer not found with id: " + id);
+            throw new CustomerException("Customer not found with id: " + id);
         }
 
 

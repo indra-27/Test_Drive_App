@@ -5,13 +5,13 @@ import com.training.testdriveapp.customer.Customer;
 import java.util.List;
 
 public interface CustomerServices {
-    Customer addNewCustomer(Customer newCustomer);
+    Customer addNewCustomer(Customer newCustomer) throws CustomerException;
 
     List<Customer> getAllCustomers();
 
-    Customer updateCustomer(Customer customer);
+    Customer updateCustomer(Customer customer) throws CustomerException;
 
-    void deleteCustomer(Integer id);
+    void deleteCustomer(Integer id) throws CustomerException;
 
     Customer login(LoginDto loginDto) throws CustomerException;
 }

@@ -25,4 +25,9 @@ public class AdminController {
     {
         return this.adminServices.updateCarDetails(updateCar);
     }
+    @DeleteMapping("admin/car/delete/{id}")
+    public Car deleteCarById(@PathVariable("id") Integer carId) throws AdminException
+    {
+        return this.adminServices.deleteCarById(carId);
+    }
 }

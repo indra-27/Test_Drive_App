@@ -1,6 +1,7 @@
 package com.training.testdriveapp.admin;
 
 import com.training.testdriveapp.rating.Rating;
+import com.training.testdriveapp.staff.Staff;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -21,8 +22,25 @@ public class Car {
     private Double mileage;
     private Double rpm;
 
+    @OneToOne
+    private Staff staff;
+
     @OneToMany
     private List<Rating> ratings = new ArrayList<>();
+
+    public Car(String company, String modelName, String color, Double carPrice, String engineModel, String vehicleType, Integer seater, Double mileage, Double rpm, Staff staff, List<Rating> ratings) {
+        Company = company;
+        this.modelName = modelName;
+        this.color = color;
+        this.carPrice = carPrice;
+        this.engineModel = engineModel;
+        this.vehicleType = vehicleType;
+        this.seater = seater;
+        this.mileage = mileage;
+        this.rpm = rpm;
+        this.staff = staff;
+        this.ratings = ratings;
+    }
 
     public Car(String company, String modelName, String color, Double carPrice, String engineModel, String vehicleType, Integer seater, Double mileage, Double rpm, Car testDriveCars, List<Rating> rating) {
         Company = company;
@@ -37,9 +55,6 @@ public class Car {
         this.ratings = rating;
     }
 
-
-//    @ManyToMany
-//    private List<Availability> carAvailabilityList;
 public Car() {
 }
 
@@ -146,4 +161,11 @@ public Car() {
         this.ratings = rating;
     }
 
+    public Staff getStaff() {
+        return staff;
+    }
+
+    public void setStaff(Staff staff) {
+        this.staff = staff;
+    }
 }

@@ -11,4 +11,6 @@ public interface AdminServices {
     List<Car> getCarDetailsByModelName(String modelName) throws AdminException;
 
     Car updateCarDetails(Car updateCar) throws AdminException;
+
+    Car deleteCarById(Integer carId) throws AdminException;
 }

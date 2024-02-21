@@ -62,4 +62,5 @@ public class Rating {
         this.ratingStars = ratingStars;
         this.comments = comments;
     }
+    
 }

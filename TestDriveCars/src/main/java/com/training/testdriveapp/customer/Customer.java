@@ -63,17 +63,17 @@ public class Customer {
 //    }
 
 
-//    public Customer(Integer customerId, String customerName, Address address, Integer mobileNumber, String customerEmail, String password, List<Rating> ratings, List<Car> testDriveCars, List<Booking> customerBookings) {
-//        this.customerId = customerId;
-//        CustomerName = customerName;
-//        this.address = address;
-//        this.mobileNumber = mobileNumber;
-//        this.customerEmail = customerEmail;
-//        this.password = password;
-//        this.ratings = ratings;
-//        this.testDriveCars = testDriveCars;
-//        this.customerBookings = customerBookings;
-//    }
+    public Customer(Integer customerId, String customerName, Address address,String mobileNumber, String customerEmail, String password, List<Rating> ratings, List<Car> testDriveCars, List<Booking> customerBookings) {
+        this.customerId = customerId;
+        CustomerName = customerName;
+        this.address = address;
+        this.mobileNumber = mobileNumber;
+        this.customerEmail = customerEmail;
+        this.password = password;
+        this.ratings = ratings;
+
+        this.customerBookings = customerBookings;
+    }
 
 //    public Customer(String customerName, Address address, Integer mobileNumber, String customerEmail, String password, List<Rating> ratings, List<Car> testDriveCars, List<Booking> customerBookings) {
 //        CustomerName = customerName;

@@ -110,8 +110,16 @@ public class CustomerServicesImpl implements CustomerServices {
 
 
 
+
+
         }
         return null;
+    }
+
+    @Override
+    public List<Rating> getCustomerRating(Integer id) {
+        List<Rating> ratings= this.customerRepository.findById(id).get().getRatings();
+        return ratings;
     }
 }
 

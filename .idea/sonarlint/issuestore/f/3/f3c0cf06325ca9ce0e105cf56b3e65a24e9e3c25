@@ -1,0 +1,13 @@
+
+l	java:S116"WRename this field "CustomerName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù¨Ğ¢
+v
+java:S4144w"[Update this method so that its implementation is not identical to "getRatings" on line 111.(ÓËÉœûÿÿÿÿ
+[	java:S107C"AConstructor has 9 parameters, which is greater than 7 authorized.(™¼àøÿÿÿÿ
+Q	java:S125 "<This block of commented-out lines of code should be removed.(’àğÚ
+O
+java:S1172C"4Remove this unused method parameter "testDriveCars".(™¼àøÿÿÿÿ
+Q	java:S1257"<This block of commented-out lines of code should be removed.(ÿÇƒ»
+Q	java:S125O"<This block of commented-out lines of code should be removed.(•’¬
+P	java:S125^"<This block of commented-out lines of code should be removed.(Úèé
+R	java:S125¨"<This block of commented-out lines of code should be removed.(®°ÛÙ
+W	java:S125«"<This block of commented-out lines of code should be removed.(„óß¡ùÿÿÿÿ

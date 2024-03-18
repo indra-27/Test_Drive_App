@@ -1,0 +1,11 @@
+
+X
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ
+¤
+java:S1130/"Remove the declaration of thrown exception 'com.training.testdriveapp.customer.CustomerException', as it cannot be thrown from method's body.( ¥¶
+©
+java:S11304"Remove the declaration of thrown exception 'com.training.testdriveapp.customer.CustomerException', as it cannot be thrown from method's body.(êï«Šşÿÿÿÿ
+d
+java:S1128"IRemove this unused import 'jakarta.persistence.criteria.CriteriaBuilder'.(À¼ºñşÿÿÿÿ
+
+java:S1128"fRemove this unused import 'org.springframework.boot.autoconfigure.context.LifecycleAutoConfiguration'.(ÓÃ³Şşÿÿÿÿ
